@@ -29,11 +29,8 @@ median(steps_by_day$x)
 
 ```{r, echo=TRUE}
 steps_by_interval <- aggregate(steps_activity$steps, list(interval = steps_activity$interval), mean)
-steps_by_interval$time = strptime(sprintf("%04d", steps_by_interval$interval), "%H%M")
-head(steps_by_interval)
-library(ggplot2)
-qplot(x=steps_by_interval$time, xlab='time',
-      y=steps_by_interval$x, ylab='average number of steps')
+steps_by_interval$posixtime = as.POSIXct(sprintf("%04d", steps_by_interval$interval), format="%H%M")
+plot(steps_by_interval$posixtime, steps_by_interval$x, xlab='time', ylab='average number of steps')
 ```
 
 ## Imputing missing values
