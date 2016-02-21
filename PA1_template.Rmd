@@ -10,13 +10,20 @@ output:
 
 * unzip activity.zip
 
-```{r hello-random, echo=TRUE}
-rnorm(5)
+```{r, echo=TRUE}
+raw_activity = read.csv('activity.csv')
+steps_activity <- na.omit(raw_activity)
+head(steps_activity)
 ```
 
 ## What is mean total number of steps taken per day?
 
-
+```{r, echo=TRUE}
+steps_by_day <- aggregate(steps_activity$steps, list(date = steps_activity$date), sum)
+head(steps_by_day)
+mean(steps_by_day$x)
+median(steps_by_day$x)
+```
 
 ## What is the average daily activity pattern?
 
