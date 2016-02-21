@@ -20,7 +20,7 @@ head(steps_activity)
 
 ```{r, echo=TRUE}
 steps_by_day <- aggregate(steps_activity$steps, list(date = steps_activity$date), sum)
-head(steps_by_day)
+hist(steps_by_day$x)
 mean(steps_by_day$x)
 median(steps_by_day$x)
 ```
