@@ -27,7 +27,13 @@ median(steps_by_day$x)
 
 ## What is the average daily activity pattern?
 
-
+```{r, echo=TRUE}
+steps_by_interval <- aggregate(steps_activity$steps, list(interval = steps_activity$interval), mean)
+head(steps_by_interval)
+library(ggplot2)
+qplot(x=steps_by_interval$interval, xlab='interval',
+      y=steps_by_interval$x, ylab='average number of steps')
+```
 
 ## Imputing missing values
 
