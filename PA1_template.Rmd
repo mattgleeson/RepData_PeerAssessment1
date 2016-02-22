@@ -33,6 +33,12 @@ steps_by_interval$posixtime = as.POSIXct(sprintf("%04d", steps_by_interval$inter
 plot(steps_by_interval$posixtime, steps_by_interval$x, xlab='time', ylab='average number of steps')
 ```
 
+Which interval has the maximum steps?
+
+```{r, echo=TRUE}
+head(subset(steps_by_interval[order(-steps_by_interval$x),], select=c('interval', 'x')), 1)
+```
+
 ## Imputing missing values
 
 
