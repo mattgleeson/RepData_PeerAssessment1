@@ -42,6 +42,12 @@ head(subset(steps_by_interval[order(-steps_by_interval$steps),], select=c('inter
 
 ## Imputing missing values
 
+Count the missing step values.
+
+```{r, echo=TRUE}
+nrow(raw_activity) - nrow(steps_activity)
+```
+
 
 
 ## Are there differences in activity patterns between weekdays and weekends?
